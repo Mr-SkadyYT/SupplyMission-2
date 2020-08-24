@@ -31,6 +31,10 @@ function setup() {
 	helicopterSprite.addImage(helicopterIMG)
 	helicopterSprite.scale=0.6
 
+	body1 = Bodies.rectangle(320,600,16,140,{isStatic:true});
+	body2 = Bodies.rectangle(389,655,150,15,{isStatic:true});
+	body3 = Bodies.rectangle(470,600,16,140,{isStatic:true});
+
 	rectangle1=createSprite(320,600,16,140);
 	rectangle1.shapeColor=color("red");
 	rectangle2=createSprite(389,655,150,15);
@@ -45,7 +49,7 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
-	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0.8, isStatic:true});
+	packageBody = Bodies.rectangle(width/2 , 200 , 35, 35 , {restitution:0.3, isStatic:true});
 	World.add(world, packageBody);
 	
 
@@ -64,9 +68,12 @@ function draw() {
   background(0);
   packageSprite.x= packageBody.position.x 
   packageSprite.y= packageBody.position.y 
-  rectangle1.display();
-  rectangle2.display();
-  rectangle3.display();
+  rectangle1.x = body1.position.x;
+  rectangle1.y = body1.position.y;
+  rectangle2.x = body2.position.x;
+  rectangle2.y = body2.position.y;
+  rectangle3.x = body3.position.x;
+  rectangle3.y = body3.position.y;
   drawSprites();
  
 }
